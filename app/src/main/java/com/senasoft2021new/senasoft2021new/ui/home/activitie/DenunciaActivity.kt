@@ -17,6 +17,7 @@ import com.senasoft2021new.senasoft2021new.R
 import com.senasoft2021new.senasoft2021new.database.RoomDataBaseClient
 import com.senasoft2021new.senasoft2021new.databinding.ActivityDenunciaBinding
 import com.senasoft2021new.senasoft2021new.models.DenunciaRegister
+import com.senasoft2021new.senasoft2021new.ui.home.activitie.fragment.MisDenunciasFragment
 
 class DenunciaActivity : AppCompatActivity() {
     lateinit var binding:ActivityDenunciaBinding
@@ -30,6 +31,10 @@ class DenunciaActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.idImageDenuncia.setOnClickListener { permisoStorage()}
         binding.idSendDenuncia.setOnClickListener { sendMesageDenuncia() }
+        binding.idBtnMisDenuncias.setOnClickListener{
+        val misDenunciasFragment=MisDenunciasFragment()
+            misDenunciasFragment.show(supportFragmentManager,"MisDenunciasFragment")
+        }
     }
 
     /**

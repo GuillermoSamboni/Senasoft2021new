@@ -47,6 +47,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    app:startIconDrawable="@drawable/ic_user"
                     app:endIconMode="clear_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -67,6 +68,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    app:startIconDrawable="@drawable/ic_phone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/idTxtLaoutRegisterName">
@@ -85,6 +87,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    app:startIconDrawable="@drawable/ic_email"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/idTxtLaoutRegisterPhone">
@@ -93,6 +96,7 @@
                         android:id="@+id/idTxtRegisterEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
                         android:hint="@string/email" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,6 +106,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    app:startIconDrawable="@drawable/ic_lock"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/idTxtLaoutRegisterEmail">
@@ -110,6 +115,7 @@
                         android:id="@+id/idTxtRegisterPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPassword"
                         android:hint="@string/password" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,6 +125,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    app:startIconDrawable="@drawable/ic_lock"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/idTxtLaoutRegisterPass">
@@ -127,24 +134,28 @@
                         android:id="@+id/idTxtRegisterConfirmPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPassword"
                         android:hint="@string/confirm_password" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/idBtnRegisterGenerateQr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
+                    app:icon="@drawable/ic_qr_code"
                     android:text="@string/generate_qr"
+                    app:cornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/idLayoutRegisterConfirmPass" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/idBtnRegisterMe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    app:cornerRadius="10dp"
                     android:text="@string/register_me"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

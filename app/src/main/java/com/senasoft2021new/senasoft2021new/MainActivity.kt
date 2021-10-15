@@ -9,6 +9,7 @@ import com.huawei.hms.support.hwid.HuaweiIdAuthManager
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper
 import com.senasoft2021new.senasoft2021new.database.RoomDataBaseClient
+import com.senasoft2021new.senasoft2021new.database.SharedPreferencesClient
 import com.senasoft2021new.senasoft2021new.databinding.ActivityMainBinding
 import com.senasoft2021new.senasoft2021new.extension_function.showToast
 import com.senasoft2021new.senasoft2021new.ui.login.admin.LoginAdminActivity
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         supportActionBar?.hide()
         setContentView(binding.root)
+
+        getCurrentUSer()
+
         binding.idBtnLoginHuawei.setOnClickListener{
             loginHuwei()
         }
@@ -105,6 +109,17 @@ class MainActivity : AppCompatActivity() {
         val emptyPass=Validations.validteEditText(binding.idTxtLoginPass)
 
         return emptyName || emptyPass
+
+    }
+
+    /**
+     * obtener la cuenta que tiene la seccion abierta e indicarle al usuario que tiene una seccion abierta
+     */
+    private fun getCurrentUSer(){
+
+        SharedPreferencesClient.getCurrentUser(this)?.let {
+            binding.idTxtLoginName.setText(it.name)
+        }
 
     }
 

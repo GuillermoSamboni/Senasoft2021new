@@ -85,6 +85,18 @@ class SharedPreferencesClient {
             return fTime
         }
 
+        /**
+         * obtener la cuenta de usuario que tenga la seccion activa
+         */
+        fun getCurrentUser(context: Context): UserRegister? {
+
+            val shp= getInstance(context)
+            val idUser=shp.getInt(KEY_ID_USER,-1)
+            val bd=RoomDataBaseClient.getInstance(context).userDao()
+
+            return bd.selectUserById(idUser)
+
+        }
 
 
     }//endComp

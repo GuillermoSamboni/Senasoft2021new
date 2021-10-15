@@ -5,6 +5,7 @@ import android.location.Address
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.bumptech.glide.Glide
 import com.huawei.hms.ads.AdParam
 import com.huawei.hms.ads.InterstitialAd
 import com.huawei.hms.identity.Address.getAddressClient
@@ -12,6 +13,7 @@ import com.huawei.hms.identity.entity.GetUserAddressResult
 import com.huawei.hms.identity.entity.UserAddressRequest
 import com.huawei.hms.support.api.client.Status
 import com.senasoft2021new.senasoft2021new.R
+import com.senasoft2021new.senasoft2021new.database.SharedPreferencesClient
 import com.senasoft2021new.senasoft2021new.databinding.ActivityProfileBinding
 import java.lang.Exception
 
@@ -28,8 +30,9 @@ class ProfileActivity : AppCompatActivity() {
 
         interstitialAd= InterstitialAd(this)
         interstitialAd!!.adId="testb4znbuh3n2"
-
+        getCurrentUser()
         loadAds()
+
 
         binding.idBtnFloatIdentity.setOnClickListener {
             identityKit()
@@ -81,4 +84,21 @@ class ProfileActivity : AppCompatActivity() {
             status.startResolutionForResult(this, 0)
         }
     }
+
+    /**
+     * obtener la cuenta de usuario y mostrar sus datos
+     */
+    private fun getCurrentUser(){
+
+        SharedPreferencesClient.getCurrentUser(this)?.let {
+
+            Glide.with(this).load(it.qrCode).into(binding.idImgProfileQrCode)
+            binding.idTxtProfileName.text=it.name
+            binding.idTxtProfilePhone.text=it.phone
+            binding.idTxtProfileEmail.text=it.email
+
+        }
+
+    }
+
 }

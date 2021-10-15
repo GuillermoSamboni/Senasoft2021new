@@ -26,4 +26,11 @@
     <string name="seleccionar_imagen">Insertar imagen</string>
     <string name="en_que_podemos_ayudarte">En que podemos ayudarte</string>
     <string name="tu_denuncia">Tu denuncia</string>
+    <string name="mis_denuncias">Mis denuncias</string>
+    <string name="no_denuncias">No hay denuncias registradas</string>
+    <string name="open_camera">Abrir Camara</string>
+    <string name="open_gallery">Abrir Galeria</string>
+    <string name="send">Send</string>
+    <string name="events">Eventos</string>
+    <string name="locations">Ubicaciones</string>
 </resources>
