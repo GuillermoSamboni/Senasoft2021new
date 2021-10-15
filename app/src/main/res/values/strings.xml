@@ -26,7 +26,6 @@
     <string name="seleccionar_imagen">Insertar imagen</string>
     <string name="en_que_podemos_ayudarte">En que podemos ayudarte</string>
     <string name="tu_denuncia">Tu denuncia</string>
-<<<<<<< HEAD
     <string name="quienes_somos">Quienes somos?</string>
     <string name="contenidoapp">En su firme propósito de continuar trabajando para garantizar a las mujeres una vida libre de violencias y en el marco de la celebración del Día de la NO Violencia contra la Mujer,
         SenaSoftNew se une a esta iniciativa.
@@ -40,7 +39,6 @@
         Podrás encontrarnos facilmente con el servicio de mapa que tienes a tu disposición en la sección de ubicación.
     </string>
     <string name="compenecia">Has volar tu imaginacion, plasma tus mejores ideas, compartela con nosotros y participa por maravillosos premios</string>
-=======
     <string name="mis_denuncias">Mis denuncias</string>
     <string name="no_denuncias">No hay denuncias registradas</string>
     <string name="open_camera">Abrir Camara</string>
@@ -48,5 +46,4 @@
     <string name="send">Send</string>
     <string name="events">Eventos</string>
     <string name="locations">Ubicaciones</string>
->>>>>>> 53f8d7b6693eea1a42770b0f9b043c0560e2387b
 </resources>

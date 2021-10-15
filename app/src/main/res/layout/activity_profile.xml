@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:textSize="16sp"
             android:textColor="@color/white"
             android:text="SenaSoft2021New"
             android:layout_width="wrap_content"
