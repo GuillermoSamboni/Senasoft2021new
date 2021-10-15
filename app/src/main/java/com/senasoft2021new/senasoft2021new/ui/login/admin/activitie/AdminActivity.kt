@@ -7,8 +7,12 @@ import com.senasoft2021new.senasoft2021new.databinding.ActivityAdminBinding
 
 class AdminActivity : AppCompatActivity() {
 
+    private  lateinit var binding:ActivityAdminBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin)
+        binding= ActivityAdminBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        supportActionBar?.hide()
     }
 }

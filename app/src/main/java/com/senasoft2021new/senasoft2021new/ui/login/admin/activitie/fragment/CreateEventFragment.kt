@@ -151,6 +151,7 @@ class CreateEventFragment : Fragment() {
 
         val datePicker=MaterialDatePicker.Builder.datePicker().build()
         val timePicker=MaterialTimePicker.Builder().build()
+        datePicker.show(childFragmentManager,"")
 
         datePicker.addOnPositiveButtonClickListener {
             val date=Calendar.getInstance()
@@ -166,10 +167,10 @@ class CreateEventFragment : Fragment() {
                 when(action){
                     "start"->{
                         startDate=currentDate
-                        binding.idTxtCreateEventStartDate.text=startDate
+                        binding.idTxtCreateEventStartDate.text=currentDate
                     }
 
-                    "endDate"->{
+                    "end"->{
                         endDate=currentDate
                         binding.idTxtCreateEventEndDate.text=currentDate
                     }
@@ -180,7 +181,7 @@ class CreateEventFragment : Fragment() {
 
         }
 
-        datePicker.show(childFragmentManager,"")
+
 
 
     }
