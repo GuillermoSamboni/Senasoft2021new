@@ -74,8 +74,7 @@ class DashboardFragment : Fragment() {
             val infoEvent=InfoEventFragment()
             infoEvent.show(childFragmentManager,"InfoEvent")
         }
-
-
+        
     }
 
     override fun onDestroyView() {

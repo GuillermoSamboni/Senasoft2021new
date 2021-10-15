@@ -27,7 +27,7 @@ class PushServiceClass : HmsMessageService() {
         Log.d("NewToken", "$token")
     }
 }
-class getTokenPushService(){
+class GetTokenPushService(){
     var handler:Handler= Handler(Looper.getMainLooper())
     fun getToken(context: Context, callback: (String)->Unit){
         thread {
