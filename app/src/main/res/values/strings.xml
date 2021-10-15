@@ -46,4 +46,5 @@
     <string name="send">Send</string>
     <string name="events">Eventos</string>
     <string name="locations">Ubicaciones</string>
+    <string name="scanear_c_digo">Scanear código</string>
 </resources>

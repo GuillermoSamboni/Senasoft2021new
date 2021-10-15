@@ -67,8 +67,8 @@ dependencies {
     //huawei
     implementation 'com.huawei.agconnect:agconnect-core:1.5.2.300'
     implementation 'com.huawei.hms:hwid:6.0.1.300'
-//    implementation 'com.huawei.hms:push:5.3.0.304'
     implementation 'com.huawei.hms:push:5.3.0.304'
+//    implementation 'com.huawei.hms:scan:2.1.0.300'
     implementation 'com.huawei.hms:scan:2.1.0.300'
     implementation 'com.huawei.hms:maps:6.0.0.301'
     implementation 'com.huawei.hms:location:6.0.0.302'
