@@ -5,15 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_color"
-    tools:context=".MainActivity">
+    tools:context=".ui.login.admin.LoginAdminActivity">
+
 
     <TextView
         android:id="@+id/textView"
         style="@style/title_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/app_name"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/login_as_admin"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,11 +26,12 @@
         style="@style/cardViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idBtnLoginGoToAdmin">
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.31">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -37,24 +40,12 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="30dp"
                 android:paddingHorizontal="15dp"
-                >
-
-
-                <com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton
-                    android:id="@+id/idBtnLoginHuawei"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    app:hwid_color_policy="hwid_color_policy_white_with_border"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/idBtnLogin" />
+                android:paddingVertical="30dp">
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/idLayoutLoginName"
+                    android:id="@+id/idLayoutLoginAdminName"
                     style="@style/textInpueEdiTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -65,7 +56,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView3">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/idTxtLoginName"
+                        android:id="@+id/idTxtLoginAdminName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/name"
@@ -77,13 +68,13 @@
                     style="@style/title_text_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/login"
+                    android:text="@string/admin"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/idLayoutLoginPass"
+                    android:id="@+id/idLayoutLoginAdminPass"
                     style="@style/textInpueEdiTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -91,55 +82,26 @@
                     app:endIconMode="password_toggle"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/idLayoutLoginName">
+                    app:layout_constraintTop_toBottomOf="@+id/idLayoutLoginAdminName">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/idTxtLoginPass"
+                        android:id="@+id/idTxtLoginAdminPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/password"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/idLayoutLoginPass">
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1"
-                        android:gravity="end"
-                        android:text="@string/no_tengo_cuenta" />
-
-                    <TextView
-                        android:id="@+id/idBtnLoginRegister"
-                        style="@style/title_text_style"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/register_me"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/idBtnLogin"
+                    android:id="@+id/idBtnLoginAdmin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="@string/login"
+                    android:text="@string/ingresar"
                     app:cornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+                    app:layout_constraintTop_toBottomOf="@+id/idLayoutLoginAdminPass" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -147,17 +109,6 @@
         </ScrollView>
 
     </androidx.cardview.widget.CardView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/idBtnLoginGoToAdmin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_add" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

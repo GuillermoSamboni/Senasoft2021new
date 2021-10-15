@@ -8,7 +8,11 @@ import android.widget.Toast
 import com.huawei.hms.support.hwid.HuaweiIdAuthManager
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper
+import com.senasoft2021new.senasoft2021new.database.RoomDataBaseClient
 import com.senasoft2021new.senasoft2021new.databinding.ActivityMainBinding
+import com.senasoft2021new.senasoft2021new.extension_function.showToast
+import com.senasoft2021new.senasoft2021new.ui.login.user.RegisterActivity
+import com.senasoft2021new.senasoft2021new.validations.Validations
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
@@ -16,10 +20,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
+        supportActionBar?.hide()
         setContentView(binding.root)
         binding.idBtnLoginHuawei.setOnClickListener{
             loginHuwei()
         }
+
+        binding.idBtnLoginRegister.setOnClickListener {
+            startActivity(Intent(this,RegisterActivity::class.java))
+        }
+
+        binding.idBtnLogin.setOnClickListener { loginUser() }
 
     }
     //USAMOS KIT DE CUENTA
@@ -51,6 +62,44 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+
+    /**
+     * loguear un nuevo usuario en la base de datos
+     */
+    private fun loginUser(){
+
+        if(validarCampos()){
+            this.showToast("Faltan campos por completar")
+            return
+        }
+
+        val name=binding.idTxtLoginName.text.toString().trim()
+        val pass=binding.idTxtLoginPass.text.toString().trim()
+
+        if(RoomDataBaseClient.loginUser(name,pass,this)){
+            startActivity(Intent(this,InicioActivity::class.java))
+        }
+        else{
+            binding.idLayoutLoginName.error="Nombre o contraseña incorrectas"
+            this.showToast("Nombre o contraseña incorrectas")
+        }
+
+    }
+
+    /**
+     * validar los campos de registro
+     * @return true si al menos uno de los campos esta vacio o es nulo
+     *  - false en caso contrario
+     */
+    private fun validarCampos(): Boolean {
+
+        val emptyName=Validations.validteEditText(binding.idTxtLoginName)
+        val emptyPass=Validations.validteEditText(binding.idTxtLoginPass)
+
+        return emptyName || emptyPass
+
     }
 
 

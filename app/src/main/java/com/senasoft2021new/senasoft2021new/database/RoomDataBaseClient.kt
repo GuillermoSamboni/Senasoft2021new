@@ -63,8 +63,9 @@ abstract class RoomDataBaseClient : RoomDatabase() {
             var retorno = false
 
             runBlocking {
-                bd.selectUserByName(name)?.let {
-                    if (it.password.lowercase() == pass.lowercase())
+
+                bd.listAllUsers().forEach { user ->
+                    if (user.name.lowercase() == name.lowercase() && user.password.lowercase() == pass.lowercase())
                         retorno = true
                 }
 
@@ -77,14 +78,14 @@ abstract class RoomDataBaseClient : RoomDatabase() {
          * verificar si el nombre de usuario exite
          * @return true si el nombre existe - false en caso contrario
          */
-        fun nameUserExits(name:String,context: Context):Boolean{
+        fun nameUserExits(name: String, context: Context): Boolean {
 
             val bd = getInstance(context).userDao()
             var retorno = false
 
             runBlocking {
                 bd.selectUserByName(name)?.let {
-                    if (it.password.lowercase() == name.lowercase())
+                    if (it.name.lowercase() == name.lowercase())
                         retorno = true
                 }
 
@@ -96,20 +97,19 @@ abstract class RoomDataBaseClient : RoomDatabase() {
          * verificar si el email de usuario exite
          * @return true si el email existe - false en caso contrario
          */
-        fun emailUserExits(email:String,context: Context):Boolean{
+        fun emailUserExits(email: String, context: Context): Boolean {
             val bd = getInstance(context).userDao()
             var retorno = false
 
             runBlocking {
                 bd.selectUserByEmail(email)?.let {
-                    if (it.password.lowercase() == email.lowercase())
+                    if (it.email.lowercase() == email.lowercase())
                         retorno = true
                 }
 
             }
             return retorno
         }
-
 
 
         //operaciones para los admins//-----------------------------------
@@ -124,7 +124,7 @@ abstract class RoomDataBaseClient : RoomDatabase() {
 
             runBlocking {
                 bd.selectAdminByDni(name)?.let {
-                    if (it.dni.lowercase() == name.lowercase() && it.dni== pass.lowercase())
+                    if (it.dni.lowercase() == name.lowercase() && it.dni == pass.lowercase())
                         retorno = true
                 }
 
@@ -138,15 +138,15 @@ abstract class RoomDataBaseClient : RoomDatabase() {
          * registrar un nuevo evento en la base de datos
          * @return true si el evento se registro correctamente - false en caso contrario
          */
-        fun registerEvent(eventRegister: EventRegister, context: Context):Boolean{
+        fun registerEvent(eventRegister: EventRegister, context: Context): Boolean {
 
-            val bd= getInstance(context).eventDao()
-            var retorno=false
+            val bd = getInstance(context).eventDao()
+            var retorno = false
 
             runBlocking {
-                    bd.insertEvent(eventRegister)
-                    retorno = true
-                }
+                bd.insertEvent(eventRegister)
+                retorno = true
+            }
 
             return retorno
         }
@@ -155,7 +155,7 @@ abstract class RoomDataBaseClient : RoomDatabase() {
          * listar todos los eventos almacenado en la bd
          * @return lista con todos los eventos registrado
          */
-        fun listAllEvents(context: Context)= getInstance(context).eventDao().listAllEvents()
+        fun listAllEvents(context: Context) = getInstance(context).eventDao().listAllEvents()
 
         //operaciones para las denuncias
 
@@ -163,11 +163,11 @@ abstract class RoomDataBaseClient : RoomDatabase() {
          * registrar una nueva denuncia en la base de datos
          * @return true si el denuncia se registro correctamente - false en caso contrario
          */
-        fun registerDenuncia(denunciaRegister: DenunciaRegister,context: Context):Boolean{
+        fun registerDenuncia(denunciaRegister: DenunciaRegister, context: Context): Boolean {
 
 
-            var retorno=false
-            val bd= getInstance(context).denunciaDao()
+            var retorno = false
+            val bd = getInstance(context).denunciaDao()
 
             runBlocking {
                 bd.insertDenuncia(denunciaRegister)
@@ -182,7 +182,8 @@ abstract class RoomDataBaseClient : RoomDatabase() {
          * listar todas las denuncias almacenado en la bd
          * @return lista con todas las denuncia registrado
          */
-        fun lisAllDenuncias(context: Context)= getInstance(context).denunciaDao().listAllDenuncias()
+        fun lisAllDenuncias(context: Context) =
+            getInstance(context).denunciaDao().listAllDenuncias()
 
     }//endComp
 
