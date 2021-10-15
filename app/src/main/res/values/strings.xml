@@ -11,4 +11,9 @@
     <string name="password">Contraseña</string>
     <string name="confirm_password">Confirmar contraseña</string>
     <string name="generate_qr">Generar Qr</string>
+    <string name="login">Login</string>
+    <string name="no_tengo_cuenta">No tengo cuenta</string>
+    <string name="login_as_admin">Ingresar como administrador</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="admin">Administrador</string>
 </resources>

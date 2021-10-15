@@ -22,7 +22,7 @@ class RegisterActivity : AppCompatActivity() {
 
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar?.hide()
         binding.idBtnRegisterMe.setOnClickListener { registerUser() }
 
     }
@@ -44,12 +44,12 @@ class RegisterActivity : AppCompatActivity() {
         val confirmPass = binding.idTxtRegisterConfirmPass.text.toString().trim()
 
         //verificar si el email es real
-        if (emailReal(email)){
+        if (!emailReal(email)){
             this.showToast("Ingrese un email valido")
-            binding.idTxtLaoutRegisterName.error="Ingrese un email valido"
+            binding.idTxtLaoutRegisterEmail.error="Ingrese un email valido"
             return
         }else
-            binding.idTxtLaoutRegisterName.error=""
+            binding.idTxtLaoutRegisterEmail.error=""
 
         //verificar si el nombre ya esta registrado
         if(RoomDataBaseClient.nameUserExits(name,this)){

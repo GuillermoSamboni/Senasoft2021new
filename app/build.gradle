@@ -1,11 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-<<<<<<< HEAD
     id 'com.huawei.agconnect'
-=======
     id 'kotlin-kapt'
->>>>>>> 35ea59e735431f2869fb78bc8384c6e2c74044d9
+
 }
 
 android {
