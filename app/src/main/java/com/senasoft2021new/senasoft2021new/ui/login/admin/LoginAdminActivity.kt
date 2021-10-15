@@ -18,6 +18,7 @@ class LoginAdminActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityLoginAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         binding.idBtnLoginAdmin.setOnClickListener { loginAdmin() }
 
@@ -39,9 +40,8 @@ class LoginAdminActivity : AppCompatActivity() {
 
 
         if(RoomDataBaseClient.loginAdmin(name,pass,this) || (name == "123" && pass == "123")){
-
             startActivity(Intent(this,AdminActivity::class.java))
-            binding.idLayoutLoginAdminName.error=""
+
         }else {
             this.showToast("Email o contraseña incorrectos")
             binding.idLayoutLoginAdminName.error="Email o contraseña incorrectos"

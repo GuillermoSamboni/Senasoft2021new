@@ -36,7 +36,7 @@ class HomeAdminFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.idBtnHomeAdminCreateEvent.setOnClickListener{findNavController().navigate(R.id.action_homeAdminFragment_to_createEventFragment)}
+        binding.idBtnHomeAdminCreateEvent.setOnClickListener{findNavController().navigate(R.id.action_homeAdminFragment2_to_createEventFragment2)}
         eventViewModel=ViewModelProvider(requireActivity()).get(EventViewModel::class.java)
         initReycler()
 

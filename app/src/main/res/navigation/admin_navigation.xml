@@ -3,19 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/admin_navigation"
-    app:startDestination="@id/homeAdminFragment">
-
-    <fixfragment
-        android:id="@+id/homeAdminFragment"
+    app:startDestination="@id/homeAdminFragment2">
+    <fragment
+        android:id="@+id/homeAdminFragment2"
         android:name="com.senasoft2021new.senasoft2021new.ui.login.admin.activitie.fragment.HomeAdminFragment"
         android:label="fragment_home_admin"
         tools:layout="@layout/fragment_home_admin" >
         <action
-            android:id="@+id/action_homeAdminFragment_to_createEventFragment"
-            app:destination="@id/createEventFragment" />
-    </fixfragment>
-    <fixfragment
-        android:id="@+id/createEventFragment"
+            android:id="@+id/action_homeAdminFragment2_to_createEventFragment2"
+            app:destination="@id/createEventFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/createEventFragment2"
         android:name="com.senasoft2021new.senasoft2021new.ui.login.admin.activitie.fragment.CreateEventFragment"
         android:label="fragment_create_event"
         tools:layout="@layout/fragment_create_event" />

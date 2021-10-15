@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.senasoft2021new.senasoft2021new.R
 import com.senasoft2021new.senasoft2021new.databinding.FragmentInfoEventBinding
+import com.senasoft2021new.senasoft2021new.extension_function.showToast
 
 
 class InfoEventFragment : DialogFragment() {
@@ -27,8 +29,10 @@ class InfoEventFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         _binding=FragmentInfoEventBinding.inflate(LayoutInflater.from(context))
         val dialog = super.onCreateDialog(savedInstanceState)
+        dialog.setContentView(binding.root)
         eventViewModel=ViewModelProvider(requireActivity()).get(EventViewModel::class.java)
-
+        binding.idBtnInfoEventSubscrebeME.setOnClickListener { requireContext().showToast("Suscripción exitosa") }
+        dialog.window?.setWindowAnimations(R.style.dialog_anim)
         loadInfo()
 
         return dialog
@@ -36,6 +40,12 @@ class InfoEventFragment : DialogFragment() {
 
     private fun loadInfo() {
         eventViewModel.getEvent().observe(this){
+
+            Glide.with(requireContext()).load(it.image).into(binding.idImgInfoEvent)
+            binding.idTxtInfoEventTitle.text=it.title
+            binding.idTxtInfoEventDescrip.text=it.description
+            binding.idTxtInfoEventStartDate.text="Fecha de inicio: ${it.startDate}"
+            binding.idTxtInfoEventEndDate.text="Fecha de finalización: ${it.endDate}"
 
         }
     }
