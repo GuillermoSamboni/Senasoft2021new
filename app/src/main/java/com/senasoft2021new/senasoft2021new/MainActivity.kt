@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.idBtnLoginGoToAdmin.setOnClickListener {
-            startActivity(Intent(this,AdminActivity::class.java))
+            startActivity(Intent(this,LoginAdminActivity::class.java))
         }
 
         binding.idBtnLogin.setOnClickListener { loginUser() }
