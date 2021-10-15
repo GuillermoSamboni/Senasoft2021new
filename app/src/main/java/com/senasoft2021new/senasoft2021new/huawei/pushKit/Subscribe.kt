@@ -17,7 +17,7 @@ class Subscribe {
                         alertDialog.setTitle("SUBSCRIPCION EXITOSA")
                             .setMessage("te has subscrito a : $topic")
                             .setCancelable(false)
-                            .setPositiveButton(""){_,_->
+                            .setPositiveButton("aceptar"){_,_->
                                 alertDialog.setCancelable(true)
                             }.create().show()
                     }else{
@@ -25,13 +25,13 @@ class Subscribe {
                         alertDialog.setTitle("SUBSCRIPCION FALLIDA")
                             .setMessage("No ha sido posible subscrubirse a : $topic")
                             .setCancelable(false)
-                            .setPositiveButton(""){_,_->
+                            .setPositiveButton("aceptar"){_,_->
                                 alertDialog.setCancelable(true)
                             }.create().show()
                     }
                 }
         }catch (e:Exception){
-            Log.d("Error Subscripcion", e.toString())
+            Log.d("ErrorSubscripcion", e.toString())
         }
     }
 }
