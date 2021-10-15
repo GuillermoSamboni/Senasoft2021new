@@ -22,6 +22,8 @@ class DenunciaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.supportActionBar?.hide()
+
         binding= ActivityDenunciaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.idImageDenuncia.setOnClickListener { permisoStorage()}

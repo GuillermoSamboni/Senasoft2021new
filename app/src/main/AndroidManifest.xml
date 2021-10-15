@@ -22,7 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SenaSoft2021New">
-        <activity android:name=".ui.dashboard.activitie.CompetenciaActivity"></activity>
+        <activity android:name=".ui.controller.ProfileActivity"></activity>
+        <activity android:name=".ui.dashboard.activitie.CompetenciaActivity" />
         <activity android:name=".ui.home.activitie.DenunciaActivity" />
         <activity android:name=".ui.home.activitie.HelpActivity" />
         <activity
