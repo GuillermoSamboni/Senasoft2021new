@@ -39,6 +39,7 @@ class HelpActivity : AppCompatActivity() {
         binding.idBtnStorage.setOnClickListener { permisoStorage() }
         binding.idBtmSend.setOnClickListener { sendMessageHelp() }
 
+
     }
 
     /**

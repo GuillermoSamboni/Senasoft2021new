@@ -5,6 +5,8 @@ import android.location.Address
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.huawei.hms.ads.AdParam
+import com.huawei.hms.ads.InterstitialAd
 import com.huawei.hms.identity.Address.getAddressClient
 import com.huawei.hms.identity.entity.GetUserAddressResult
 import com.huawei.hms.identity.entity.UserAddressRequest
@@ -15,6 +17,8 @@ import java.lang.Exception
 
 class ProfileActivity : AppCompatActivity() {
     lateinit var binding: ActivityProfileBinding
+     var interstitialAd: InterstitialAd? =null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +26,34 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        interstitialAd= InterstitialAd(this)
+        interstitialAd!!.adId="testb4znbuh3n2"
+
+        loadAds()
+
         binding.idBtnFloatIdentity.setOnClickListener {
             identityKit()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        showAds()
+    }
+    /**
+     * hacemos uso dle kit de ads anuncios
+     */
+    private fun loadAds() {
+        var adsParam=AdParam.Builder().build()
+        interstitialAd!!.loadAd(adsParam)
+    }
+
+    private fun showAds(){
+        if (interstitialAd!=null){
+            if (interstitialAd!!.isLoaded){
+                interstitialAd!!.show(this)
+                finishAfterTransition()
+            }
         }
     }
 
