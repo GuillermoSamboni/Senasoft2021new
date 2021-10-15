@@ -25,6 +25,6 @@ interface UserDao {
     fun selectUserByEmail(email:String):UserRegister?
 
     @Query("SELECT * FROM users WHERE id = :id")
-    fun selectUserById(id:String):UserRegister?
+    fun selectUserById(id:Int):UserRegister?
 
 }

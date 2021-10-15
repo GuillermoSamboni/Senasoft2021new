@@ -34,6 +34,7 @@ abstract class RoomDataBaseClient : RoomDatabase() {
                 .allowMainThreadQueries().build()
 
 
+
         //operaciones para los usuarios//---------------------------------
 
         /**
@@ -47,6 +48,7 @@ abstract class RoomDataBaseClient : RoomDatabase() {
 
             runBlocking {
                 bd.insertUser(userRegister)
+                SharedPreferencesClient.setSeccionUser(userRegister,context)
                 retorno = true
             }
             return retorno
@@ -65,8 +67,10 @@ abstract class RoomDataBaseClient : RoomDatabase() {
             runBlocking {
 
                 bd.listAllUsers().forEach { user ->
-                    if (user.name.lowercase() == name.lowercase() && user.password.lowercase() == pass.lowercase())
+                    if (user.name.lowercase() == name.lowercase() && user.password.lowercase() == pass.lowercase()) {
+                        SharedPreferencesClient.setSeccionUser(user,context)
                         retorno = true
+                    }
                 }
 
             }

@@ -110,7 +110,7 @@ class CreateEventFragment : Fragment() {
         }
         if(endDate == null){
             requireContext().showToast("Ingrese la fecha de finalización")
-            binding.idBtnCreateEventStartDate.playAnimation()
+            binding.idBtnCreateEventEndDate.playAnimation()
             return
         }
 

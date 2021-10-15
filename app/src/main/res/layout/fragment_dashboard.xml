@@ -19,12 +19,16 @@
             style="@style/title_text_style"
             android:layout_gravity="center"
             android:paddingHorizontal="10dp"
+            android:gravity="center"
             android:paddingVertical="10dp"
             android:text="@string/no_events"/>
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:lottie_rawRes="@raw/empty_box_anim"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
             android:layout_weight="1"/>
 
     </LinearLayout>
