@@ -55,6 +55,10 @@ class HomeAdminFragment : Fragment() {
             list.clear()
             list.addAll(it)
             adapterEvents.notifyDataSetChanged()
+            if(list.isEmpty()){
+                binding.idLinearHomeAdmin.visibility=View.VISIBLE
+                binding.idRcyHomeAdminList.visibility=View.GONE
+            }
 
         }
 

@@ -29,6 +29,7 @@ class MisDenunciasFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         _binding = FragmentMisDenunciasBinding.inflate(LayoutInflater.from(context))
         val dialog = super.onCreateDialog(savedInstanceState)
+        dialog.setContentView(binding.root)
         denuncia=ViewModelProvider(requireActivity()).get(DenunciaViewModel::class.java)
         dialog.window?.setWindowAnimations(R.style.dialog_anim)
 
@@ -55,14 +56,13 @@ class MisDenunciasFragment : DialogFragment() {
                 binding.linearMisDenuncias.visibility=View.VISIBLE
             }
             adapterDenuncias.notifyDataSetChanged()
-            requireContext().showToast("${list.size}")
         }
 
 
 
         binding.idRcyMisDenuncias.apply {
             adapter = adapterDenuncias
-            layoutManager = LinearLayoutManager(requireContext())
+
         }
 
     }
