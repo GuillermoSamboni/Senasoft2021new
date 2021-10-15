@@ -26,4 +26,17 @@
     <string name="seleccionar_imagen">Insertar imagen</string>
     <string name="en_que_podemos_ayudarte">En que podemos ayudarte</string>
     <string name="tu_denuncia">Tu denuncia</string>
+    <string name="quienes_somos">Quienes somos?</string>
+    <string name="contenidoapp">En su firme propósito de continuar trabajando para garantizar a las mujeres una vida libre de violencias y en el marco de la celebración del Día de la NO Violencia contra la Mujer,
+        SenaSoftNew se une a esta iniciativa.
+        Sabemos el grado de violencia contra la mujer que se ha venido presentando en los ultimos años, por este motivpo SenaSoftNew pone a dispocicion sus lienas de
+        atencion inmendiata, brindamos la atencion las 24 horas del dia, todos los dias de las semana, las personas que prensenten algun caso de violencia
+        puede enviarnos en el momento justo que se presenta la situación en tan solo unos pasos.
+    </string>
+    <string name="nuestros_servicios">Nuestros Servicios</string>
+    <string name="servicios">
+        En nuestra app tienes a disposición el envio de ayuda a nuestros canales de atencíon, tambien encontraras eventos de tu posible interes
+        Podrás encontrarnos facilmente con el servicio de mapa que tienes a tu disposición en la sección de ubicación.
+    </string>
+    <string name="compenecia">Has volar tu imaginacion, plasma tus mejores ideas, compartela con nosotros y participa por maravillosos premios</string>
 </resources>
