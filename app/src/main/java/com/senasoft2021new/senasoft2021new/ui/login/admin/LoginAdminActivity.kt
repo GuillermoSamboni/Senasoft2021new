@@ -39,6 +39,7 @@ class LoginAdminActivity : AppCompatActivity() {
 
 
         if(RoomDataBaseClient.loginAdmin(name,pass,this) || (name == "123" && pass == "123")){
+
             startActivity(Intent(this,AdminActivity::class.java))
             binding.idLayoutLoginAdminName.error=""
         }else {

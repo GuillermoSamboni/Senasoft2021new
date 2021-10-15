@@ -21,4 +21,7 @@
     <string name="create_event">Registrar evento</string>
     <string name="title">Titulo</string>
     <string name="description">Descripción</string>
+    <string name="select_start_date">Selecciona la fecha de inicio</string>
+    <string name="select_end_date">Selecciona la fecha de finalización</string>
+    <string name="seleccionar_imagen">Insertar imagen</string>
 </resources>

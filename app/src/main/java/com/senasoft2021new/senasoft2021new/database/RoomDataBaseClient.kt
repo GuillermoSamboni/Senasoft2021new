@@ -84,8 +84,8 @@ abstract class RoomDataBaseClient : RoomDatabase() {
             var retorno = false
 
             runBlocking {
-                bd.selectUserByName(name)?.let {
-                    if (it.name.lowercase() == name.lowercase())
+                bd.listAllUsers().forEach { user ->
+                    if (user.name.lowercase() == name.lowercase())
                         retorno = true
                 }
 
@@ -100,14 +100,10 @@ abstract class RoomDataBaseClient : RoomDatabase() {
         fun emailUserExits(email: String, context: Context): Boolean {
             val bd = getInstance(context).userDao()
             var retorno = false
-
-            runBlocking {
-                bd.selectUserByEmail(email)?.let {
-                    if (it.email.lowercase() == email.lowercase())
+                bd.listAllUsers().forEach { user ->
+                    if (user.email.lowercase() == email.lowercase())
                         retorno = true
                 }
-
-            }
             return retorno
         }
 

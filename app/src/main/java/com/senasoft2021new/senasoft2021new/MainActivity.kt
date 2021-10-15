@@ -11,6 +11,7 @@ import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper
 import com.senasoft2021new.senasoft2021new.database.RoomDataBaseClient
 import com.senasoft2021new.senasoft2021new.databinding.ActivityMainBinding
 import com.senasoft2021new.senasoft2021new.extension_function.showToast
+import com.senasoft2021new.senasoft2021new.ui.login.admin.LoginAdminActivity
 import com.senasoft2021new.senasoft2021new.ui.login.user.RegisterActivity
 import com.senasoft2021new.senasoft2021new.validations.Validations
 
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.idBtnLoginRegister.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
+        }
+
+        binding.idBtnLoginGoToAdmin.setOnClickListener {
+            startActivity(Intent(this,LoginAdminActivity::class.java))
         }
 
         binding.idBtnLogin.setOnClickListener { loginUser() }
