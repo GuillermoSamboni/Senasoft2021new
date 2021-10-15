@@ -4,4 +4,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="register_me">Registrarme</string>
+    <string name="name">Nombre</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="generate_qr">Generar Qr</string>
 </resources>
