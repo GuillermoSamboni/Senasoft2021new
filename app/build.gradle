@@ -18,11 +18,27 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+//    signingConfigs{
+//        release{
+//            storeFile file('key')
+//            keyAlias "key"
+//            storePassword "123456"
+//            keyPassword "123456"
+//            v1SigninEnabled true
+//            v2SigninEnabled true
+//        }
+//    }
+
     buildTypes {
         release {
+            //signingConfig SigningConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+//        debbug{
+//            signingConfig SigningConfigs.release
+//            debuggable true
+//        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
