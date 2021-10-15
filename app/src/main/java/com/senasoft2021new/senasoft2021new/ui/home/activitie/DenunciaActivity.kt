@@ -14,7 +14,9 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.senasoft2021new.senasoft2021new.R
+import com.senasoft2021new.senasoft2021new.database.RoomDataBaseClient
 import com.senasoft2021new.senasoft2021new.databinding.ActivityDenunciaBinding
+import com.senasoft2021new.senasoft2021new.models.DenunciaRegister
 
 class DenunciaActivity : AppCompatActivity() {
     lateinit var binding:ActivityDenunciaBinding
@@ -27,6 +29,7 @@ class DenunciaActivity : AppCompatActivity() {
         binding= ActivityDenunciaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.idImageDenuncia.setOnClickListener { permisoStorage()}
+        binding.idSendDenuncia.setOnClickListener { sendMesageDenuncia() }
     }
 
     /**
@@ -52,7 +55,7 @@ class DenunciaActivity : AppCompatActivity() {
                 uriImgage=data.data
                 binding.idImageDenuncia.setImageURI(uriImgage)
 
-                sendMesageDenuncia()
+               // sendMesageDenuncia()
             }else{
                 Toast.makeText(this, "No selwciono nifuna imagen", Toast.LENGTH_SHORT).show()
             }
@@ -60,7 +63,7 @@ class DenunciaActivity : AppCompatActivity() {
     }
 
     private fun sendMesageDenuncia() {
-        if (binding.idTxtTitleDenunia.text.isEmpty() && binding.idTxtMessageDenuncia.text.isEmpty()){
+        if (binding.idTxtTitleDenunia.text!!.isEmpty() && binding.idTxtMessageDenuncia.text!!.isEmpty()){
             Toast.makeText(this, "Debbe llenar los cmapos anteriores", Toast.LENGTH_SHORT).show()
         }else{
             var intentSend=Intent()
@@ -76,6 +79,16 @@ class DenunciaActivity : AppCompatActivity() {
             intentSend.data= Uri.parse(mesageDenuncia)
             startActivity(intentSend)
         }
+
+        //guardar la denuncia en la bd,
+        val title=binding.idTxtTitleDenunia.text.toString().trim()
+        val descrip=binding.idTxtMessageDenuncia.text.toString().trim()
+
+        val denuncia=DenunciaRegister(0,title,descrip,uriImgage.toString())
+
+        RoomDataBaseClient.registerDenuncia(denuncia,this)
+
+
     }
 
 

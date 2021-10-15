@@ -52,6 +52,13 @@ class DashboardFragment : Fragment() {
         eventViewModel.getEvents(requireContext()).observe(viewLifecycleOwner){
             list.clear()
             list.addAll(it)
+
+            if(list.isEmpty()){
+                binding.idRcyDasBoardList.visibility=View.GONE
+                binding.lineardashBoard.visibility=View.VISIBLE
+            }
+
+
             adapterEvent.notifyDataSetChanged()
         }
 
