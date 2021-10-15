@@ -14,28 +14,39 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.senasoft2021new.senasoft2021new.R
 import com.senasoft2021new.senasoft2021new.databinding.ActivityHelpBinding
+import com.senasoft2021new.senasoft2021new.huawei.locationKit.LocationService
 
 class HelpActivity : AppCompatActivity() {
     lateinit var binding:ActivityHelpBinding
     var requestPermisoCamera:Int=1
     var requestPermisoStorage:Int=2
     var uriImage: Uri? =null
+    lateinit var locationService:LocationService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.supportActionBar?.hide()
+
+
+        locationService=LocationService(this)
+        locationService.startrequest()
+
+
         binding= ActivityHelpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.idBtnCamera.setOnClickListener { permisoCamera() }
         binding.idBtnStorage.setOnClickListener { permisoStorage() }
         binding.idBtmSend.setOnClickListener { sendMessageHelp() }
+
+
     }
 
     /**
      * ENVIAMOS EL MENSAJE DE AYUDA
      */
     private fun sendMessageHelp() {
-        if (binding.idTxtMesaageHelp.text.isEmpty() && uriImage==null){
+        if (binding.idTxtMesaageHelp.text!!.isEmpty() && uriImage==null){
             Toast.makeText(this, "Debe llenar los campos para enviar", Toast.LENGTH_SHORT).show()
         }else{
             var intentSend=Intent()
@@ -43,7 +54,7 @@ class HelpActivity : AppCompatActivity() {
             intentSend.type="text/plain"
             intentSend.action=Intent.ACTION_VIEW
             val numerodefecto="+57 3163254647"
-            var messageSendHelp="https://api.whatsapp.com/send?phone="+ numerodefecto + "&text=${binding.idTxtMesaageHelp.text}"
+            val messageSendHelp="https://api.whatsapp.com/send?phone="+ numerodefecto + "&text=${binding.idTxtMesaageHelp.text} \n"+" Ubicacion Persona:${locationService.myLastUbicationLocation}"+ "\n\n"+uriImage
 
             intentSend.data= Uri.parse(messageSendHelp)
             startActivity(intentSend)

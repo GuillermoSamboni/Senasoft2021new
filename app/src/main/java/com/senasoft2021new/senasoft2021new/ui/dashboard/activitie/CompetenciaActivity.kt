@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.huawei.hms.ads.AdParam
+import com.huawei.hms.ads.InterstitialAd
 import com.huawei.hms.videoeditor.ui.api.MediaApplication
 import com.huawei.hms.videoeditor.ui.api.MediaApplication.START_MODE_IMPORT_FROM_MEDIA
 import com.huawei.hms.videoeditor.ui.api.MediaExportCallBack
@@ -16,6 +18,8 @@ import com.senasoft2021new.senasoft2021new.databinding.ActivityCompetenciaBindin
 
 class CompetenciaActivity : AppCompatActivity() {
     lateinit var binding: ActivityCompetenciaBinding
+    var interstitialAd: InterstitialAd? =null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,12 +27,21 @@ class CompetenciaActivity : AppCompatActivity() {
         binding = ActivityCompetenciaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.idBtnEditarVideo.setOnClickListener {
+        interstitialAd= InterstitialAd(this)
+        interstitialAd!!.adId="testb4znbuh3n2"
 
+        loadAds()
+
+
+        binding.idBtnEditarVideo.setOnClickListener {
             permiso()
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        showAds()
+    }
     /**
      * verificamos si teinepermiso de almacenamiento
      */
@@ -61,12 +74,26 @@ class CompetenciaActivity : AppCompatActivity() {
 
     private var callback: MediaExportCallBack = object : MediaExportCallBack {
         override fun onMediaExportSuccess(p0: MediaInfo?) {
-            TODO("Not yet implemented")
+            showAds()
         }
 
         override fun onMediaExportFailed(p0: Int) {
-            TODO("Not yet implemented")
+            showAds()
         }
+    }
 
+
+    private fun loadAds() {
+        var adsParam= AdParam.Builder().build()
+        interstitialAd!!.loadAd(adsParam)
+    }
+
+    private fun showAds(){
+        if (interstitialAd!=null){
+            if (interstitialAd!!.isLoaded){
+                interstitialAd!!.show(this)
+                finishAfterTransition()
+            }
+        }
     }
 }
